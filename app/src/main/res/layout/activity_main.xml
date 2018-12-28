@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:hjm="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".activity.MainActivity">
+
+    <ImageView
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/dp_81"
+        android:layout_alignParentBottom="true"
+        android:src="@mipmap/rectangle6"/>
+
+    <com.hjm.bottomtabbar.BottomTabBar
+        android:id="@+id/bottomTabBar"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_alignParentBottom="true"
+        android:layout_alignParentStart="true"
+        hjm:tab_bar_background="#ffffff" />
+
+</RelativeLayout>

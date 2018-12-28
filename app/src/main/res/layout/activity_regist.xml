@@ -1,0 +1,154 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@mipmap/loge_rec_bag"
+    tools:context=".activity.RegistActivity">
+
+    <ImageView
+        android:id="@+id/icon_phone"
+        android:layout_width="@dimen/dp_20"
+        android:layout_height="@dimen/dp_20"
+        android:layout_marginLeft="@dimen/dp_36"
+        android:layout_marginTop="@dimen/dp_180"
+        android:src="@mipmap/register_icon_phone_n" />
+
+    <EditText
+        android:id="@+id/edit_regist_mobile"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/dp_40"
+        android:layout_marginLeft="@dimen/dp_20"
+        android:layout_marginRight="@dimen/dp_36"
+        android:layout_marginTop="@dimen/dp_170"
+        android:layout_toRightOf="@+id/icon_phone"
+        android:background="@null"
+        android:hint="手机号"
+        android:textColorHint="#ffffff"
+        android:textCursorDrawable="@null"
+        android:textSize="@dimen/sp_16" />
+
+    <View
+        android:id="@+id/view1"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/dp_1"
+        android:layout_below="@+id/icon_phone"
+        android:layout_marginLeft="@dimen/dp_36"
+        android:layout_marginRight="@dimen/dp_36"
+        android:layout_marginTop="@dimen/dp_10"
+        android:background="#ffffff" />
+
+    <ImageView
+        android:id="@+id/icon_verification"
+        android:layout_width="@dimen/dp_20"
+        android:layout_height="@dimen/dp_20"
+        android:layout_below="@+id/view1"
+        android:layout_marginLeft="@dimen/dp_36"
+        android:layout_marginTop="@dimen/dp_20"
+        android:src="@mipmap/login_icon_verification_code_n" />
+
+    <EditText
+        android:id="@+id/edit_verification_code"
+        android:layout_width="@dimen/dp_200"
+        android:layout_height="@dimen/dp_40"
+        android:layout_below="@+id/view1"
+        android:layout_marginLeft="@dimen/dp_20"
+        android:layout_marginTop="@dimen/dp_10"
+        android:layout_toRightOf="@+id/icon_verification"
+        android:background="@null"
+        android:hint="验证码"
+        android:textColorHint="#ffffff"
+        android:textCursorDrawable="@null"
+        android:textSize="@dimen/sp_16" />
+    <TextView
+        android:id="@+id/text_verification_code"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentRight="true"
+        android:layout_below="@+id/view1"
+        android:layout_marginLeft="@dimen/dp_5"
+        android:layout_marginRight="@dimen/dp_36"
+        android:layout_marginTop="@dimen/dp_20"
+        android:textColor="#ffffff"
+        android:textSize="@dimen/sp_10"
+        android:text="获取验证码"/>
+    <View
+        android:id="@+id/view2"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/dp_1"
+        android:layout_below="@+id/icon_verification"
+        android:layout_marginLeft="@dimen/dp_36"
+        android:layout_marginRight="@dimen/dp_36"
+        android:layout_marginTop="@dimen/dp_10"
+        android:background="#ffffff" />
+
+    <ImageView
+        android:id="@+id/icon_regist_lock"
+        android:layout_width="@dimen/dp_20"
+        android:layout_height="@dimen/dp_20"
+        android:layout_below="@+id/view2"
+        android:layout_marginLeft="@dimen/dp_36"
+        android:layout_marginTop="@dimen/dp_20"
+        android:src="@mipmap/login_icon_lock_n" />
+
+    <EditText
+        android:id="@+id/edit_regist_password"
+        android:layout_width="@dimen/dp_220"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/view2"
+        android:layout_marginLeft="@dimen/dp_20"
+        android:layout_marginTop="@dimen/dp_20"
+        android:layout_toRightOf="@+id/icon_regist_lock"
+        android:background="@null"
+        android:hint="登录密码"
+        android:password="true"
+        android:textColorHint="#ffffff"
+        android:textCursorDrawable="@null"
+        android:textSize="@dimen/sp_16" />
+
+    <ImageView
+        android:id="@+id/icon_eye"
+        android:layout_width="@dimen/dp_24"
+        android:layout_height="@dimen/dp_24"
+        android:layout_alignParentRight="true"
+        android:layout_below="@+id/view2"
+        android:layout_marginLeft="@dimen/dp_5"
+        android:layout_marginRight="@dimen/dp_36"
+        android:layout_marginTop="@dimen/dp_20"
+        android:layout_toRightOf="@+id/edit_regist_password"
+        android:src="@mipmap/login_icon_eye_n" />
+
+    <View
+        android:id="@+id/view3"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/dp_1"
+        android:layout_below="@+id/icon_regist_lock"
+        android:layout_marginLeft="@dimen/dp_36"
+        android:layout_marginRight="@dimen/dp_36"
+        android:layout_marginTop="@dimen/dp_10"
+        android:background="#ffffff" />
+    <TextView
+        android:id="@+id/text_regist_to_login"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textSize="@dimen/sp_14"
+        android:textColor="#ffffff"
+        android:text="已有账户？立即登录"
+        android:layout_alignParentRight="true"
+        android:layout_marginRight="@dimen/dp_36"
+        android:layout_below="@+id/view3"
+        android:layout_marginTop="@dimen/dp_10"/>
+    <Button
+        android:id="@+id/btn_regist"
+        android:layout_width="@dimen/dp_280"
+        android:layout_height="@dimen/dp_40"
+        android:layout_alignParentBottom="true"
+        android:layout_centerHorizontal="true"
+        android:layout_marginBottom="@dimen/dp_120"
+        android:background="@drawable/login_button"
+        android:text="注册"
+        android:textColor="#ff5f71"
+        android:textSize="@dimen/sp_18" />
+
+</RelativeLayout>
