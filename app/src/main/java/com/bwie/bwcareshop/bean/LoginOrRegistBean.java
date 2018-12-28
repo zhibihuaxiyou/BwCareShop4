@@ -4,7 +4,7 @@ package com.bwie.bwcareshop.bean;
  * author：张腾
  * date：2018/12/28
  */
-public class LoginAndRegistBean {
+public class LoginOrRegistBean {
     private Result result;
 
     private String message;
@@ -35,7 +35,7 @@ public class LoginAndRegistBean {
         this.status = status;
     }
 
-    private class Result {
+    public class Result {
         private String headPic;
 
         private String nickName;

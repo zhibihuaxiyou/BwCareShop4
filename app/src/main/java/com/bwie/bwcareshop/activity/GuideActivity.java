@@ -67,8 +67,9 @@ public class GuideActivity extends AppCompatActivity implements ViewPager.OnPage
         }
     }
 
+
     private void onIntent() {
-        IntentUtils.getInstence().intent(GuideActivity.this, MainActivity.class);
+        IntentUtils.getInstence().intent(GuideActivity.this, LoginActivity.class);
         finish();
     }
 

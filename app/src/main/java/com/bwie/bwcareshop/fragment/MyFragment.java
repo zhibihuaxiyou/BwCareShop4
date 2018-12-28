@@ -1,6 +1,7 @@
 package com.bwie.bwcareshop.fragment;
 
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.support.v4.app.Fragment;
@@ -9,6 +10,7 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
 
+import com.bumptech.glide.Glide;
 import com.bwie.bwcareshop.activity.LoginActivity;
 import com.bwie.bwcareshop.R;
 import com.bwie.bwcareshop.utils.IntentUtils;
@@ -35,12 +37,15 @@ public class MyFragment extends Fragment {
     @Override
     public void onActivityCreated(@Nullable Bundle savedInstanceState) {
         super.onActivityCreated(savedInstanceState);
-        mIconBitmapMyCopy.setOnClickListener(new View.OnClickListener() {
+        /*mIconBitmapMyCopy.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                ToastUtils.showToast(getActivity(),"成功");
                 IntentUtils.getInstence().intent(getActivity(),LoginActivity.class);
             }
-        });
+        });*/
+
+        Intent intent = getActivity().getIntent();
+        String headPic = intent.getStringExtra("headPic");
+        Glide.with(getActivity()).load(headPic).into(mIconBitmapMyCopy);
     }
 }

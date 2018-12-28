@@ -7,6 +7,6 @@ package com.bwie.bwcareshop.api;
  */
 public class Apis {
 
-    public static final String LOGIN_URL = "http://172.17.8.100/small/user/v1/login";
-    public static final String REGIST_URL = "http://172.17.8.100/small/user/v1/register";
+    public static final String LOGIN_URL = "user/v1/login";
+    public static final String REGIST_URL = "user/v1/register";
 }
