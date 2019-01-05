@@ -1,23 +1,87 @@
 <?xml version="1.0" encoding="utf-8"?>
-<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:hjm="http://schemas.android.com/apk/res-auto"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".activity.MainActivity">
+    android:orientation="vertical"
+    tools:context="activity.MainActivity">
 
-    <ImageView
+    <FrameLayout
+        android:id="@+id/frameLayout"
         android:layout_width="match_parent"
-        android:layout_height="@dimen/dp_81"
-        android:layout_alignParentBottom="true"
-        android:src="@mipmap/rectangle6"/>
+        android:layout_height="0dp"
+        android:layout_weight="1">
 
-    <com.hjm.bottomtabbar.BottomTabBar
-        android:id="@+id/bottomTabBar"
+        <android.support.v4.view.ViewPager
+            android:id="@+id/show_viewpager"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="#fff" />
+    </FrameLayout>
+
+    <RelativeLayout
+        android:id="@+id/main_layout1"
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
+        android:layout_height="@dimen/dp_70"
         android:layout_alignParentBottom="true"
-        android:layout_alignParentStart="true"
-        hjm:tab_bar_background="#ffffff" />
+        android:background="@mipmap/rectangle6">
 
-</RelativeLayout>
+        <RadioGroup
+            android:id="@+id/Rg_group"
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/dp_60"
+            android:layout_alignParentBottom="true"
+            android:orientation="horizontal">
+
+
+            <RadioButton
+                android:id="@+id/Rb_home"
+                android:layout_width="@dimen/dp_25"
+                android:layout_height="@dimen/dp_25"
+                android:layout_alignParentLeft="true"
+                android:layout_marginLeft="@dimen/dp_26"
+                android:background="@drawable/home_shape"
+                android:layout_marginTop="@dimen/dp_5"
+                android:button="@null"
+                android:checked="true" />
+
+            <RadioButton
+                android:id="@+id/Rb_cricle"
+                android:layout_width="@dimen/dp_25"
+                android:layout_height="@dimen/dp_25"
+                android:layout_marginLeft="@dimen/dp_40"
+                android:layout_toRightOf="@id/Rb_home"
+                android:layout_marginTop="@dimen/dp_5"
+                android:background="@drawable/circle_shape"
+                android:button="@null" />
+
+            <RadioButton
+                android:id="@+id/Rb_shop"
+                android:layout_width="@dimen/dp_55"
+                android:layout_height="@dimen/dp_55"
+                android:layout_marginLeft="@dimen/dp_40"
+                android:layout_marginRight="@dimen/dp_40"
+                android:background="@drawable/shop_shape"
+                android:button="@null"
+                android:gravity="center" />
+
+            <RadioButton
+                android:id="@+id/Rb_list"
+                android:layout_width="@dimen/dp_25"
+                android:layout_height="@dimen/dp_25"
+                android:layout_marginRight="@dimen/dp_40"
+                android:layout_toLeftOf="@id/Rb_my"
+                android:layout_marginTop="@dimen/dp_5"
+                android:background="@drawable/list_shape"
+                android:button="@null" />
+
+            <RadioButton
+                android:id="@+id/Rb_my"
+                android:layout_width="@dimen/dp_25"
+                android:layout_height="@dimen/dp_25"
+                android:background="@drawable/my_shape"
+                android:layout_marginTop="@dimen/dp_5"
+                android:button="@null" />
+        </RadioGroup>
+    </RelativeLayout>
+</LinearLayout>

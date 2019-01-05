@@ -9,23 +9,41 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
+import android.widget.TextView;
 
 import com.bumptech.glide.Glide;
-import com.bwie.bwcareshop.activity.LoginActivity;
 import com.bwie.bwcareshop.R;
+import com.bwie.bwcareshop.activity.AddressActivity;
+import com.bwie.bwcareshop.activity.CircleActivity;
+import com.bwie.bwcareshop.activity.FootActivity;
+import com.bwie.bwcareshop.activity.InformationActivity;
+import com.bwie.bwcareshop.activity.WalletActivity;
 import com.bwie.bwcareshop.utils.IntentUtils;
-import com.bwie.bwcareshop.utils.ToastUtils;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;
+import butterknife.OnClick;
 import butterknife.Unbinder;
 
 
 public class MyFragment extends Fragment {
 
+    @BindView(R.id.edit_information)
+    TextView mEditInformation;
+    @BindView(R.id.edit_circle)
+    TextView mEditCircle;
+    @BindView(R.id.edit_foot)
+    TextView mEditFoot;
+    @BindView(R.id.edit_wallet)
+    TextView mEditWallet;
+    @BindView(R.id.edit_address)
+    TextView mEditAddress;
     private Unbinder unbinder;
     @BindView(R.id.icon_bitmap_my_copy)
     public ImageView mIconBitmapMyCopy;
+    private View view;
+    private Bundle bundle;
+
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
@@ -37,15 +55,37 @@ public class MyFragment extends Fragment {
     @Override
     public void onActivityCreated(@Nullable Bundle savedInstanceState) {
         super.onActivityCreated(savedInstanceState);
-        /*mIconBitmapMyCopy.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                IntentUtils.getInstence().intent(getActivity(),LoginActivity.class);
-            }
-        });*/
-
         Intent intent = getActivity().getIntent();
+        bundle = new Bundle();
         String headPic = intent.getStringExtra("headPic");
+        String nickName = intent.getStringExtra("nickName");
+        String pwd = intent.getStringExtra("pwd");
+        bundle.putString("headPic",headPic);
+        bundle.putString("nickName",nickName);
+        bundle.putString("pwd",pwd);
         Glide.with(getActivity()).load(headPic).into(mIconBitmapMyCopy);
+    }
+
+    @OnClick({R.id.edit_information, R.id.edit_circle, R.id.edit_foot, R.id.edit_wallet, R.id.edit_address})
+    public void onClick(View v) {
+        switch (v.getId()) {
+            default:
+                break;
+            case R.id.edit_information:
+                IntentUtils.getInstence().intent(getActivity(), InformationActivity.class,bundle);
+                break;
+            case R.id.edit_circle:
+                IntentUtils.getInstence().intent(getActivity(), CircleActivity.class,bundle);
+                break;
+            case R.id.edit_foot:
+                IntentUtils.getInstence().intent(getActivity(), FootActivity.class,bundle);
+                break;
+            case R.id.edit_wallet:
+                IntentUtils.getInstence().intent(getActivity(), WalletActivity.class,bundle);
+                break;
+            case R.id.edit_address:
+                IntentUtils.getInstence().intent(getActivity(), AddressActivity.class,bundle);
+                break;
+        }
     }
 }

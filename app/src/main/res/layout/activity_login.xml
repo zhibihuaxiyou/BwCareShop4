@@ -21,6 +21,7 @@
         android:layout_marginRight="@dimen/dp_36"
         android:hint="手机号"
         android:textSize="@dimen/sp_18"
+        android:textColor="#ffffff"
         android:layout_toRightOf="@+id/icon_phone"
         android:layout_marginLeft="@dimen/dp_20"
         android:layout_marginTop="@dimen/dp_155"
@@ -58,7 +59,8 @@
         android:password="true"
         android:textColorHint="#ffffff"
         android:textCursorDrawable="@null"
-        android:textSize="@dimen/sp_18" />
+        android:textSize="@dimen/sp_18"
+        android:textColor="#ffffff"/>
     <ImageButton
         android:id="@+id/icon_login_eye"
         android:layout_width="@dimen/dp_20"

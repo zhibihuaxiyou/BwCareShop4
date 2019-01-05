@@ -1,9 +1,5 @@
 package com.bwie.bwcareshop.utils;
 
-/**
- * author：张腾
- * date：2018/12/28
- */
 import android.os.Handler;
 import android.os.Message;
 

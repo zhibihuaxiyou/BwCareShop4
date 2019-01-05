@@ -12,15 +12,14 @@ import android.widget.Button;
 import android.widget.CheckBox;
 import android.widget.EditText;
 import android.widget.ImageButton;
-import android.widget.ImageView;
 import android.widget.TextView;
 
 import com.bwie.bwcareshop.R;
 import com.bwie.bwcareshop.api.Apis;
 import com.bwie.bwcareshop.api.Constants;
 import com.bwie.bwcareshop.bean.LoginOrRegistBean;
-import com.bwie.bwcareshop.mvp.presenter.LoginOrRegistPresenter;
-import com.bwie.bwcareshop.mvp.view.LoginOrRegistView;
+import com.bwie.bwcareshop.mvp.presenter.PresenterImp;
+import com.bwie.bwcareshop.mvp.view.MyView;
 import com.bwie.bwcareshop.utils.IntentUtils;
 import com.bwie.bwcareshop.utils.ToastUtils;
 
@@ -32,7 +31,7 @@ import butterknife.BindViews;
 import butterknife.ButterKnife;
 import butterknife.OnClick;
 
-public class LoginActivity extends AppCompatActivity implements LoginOrRegistView {
+public class LoginActivity extends AppCompatActivity implements MyView {
 
     @BindViews({R.id.edit_login_mobile, R.id.edit_login_password})
     public List<EditText> editTexts;
@@ -44,7 +43,7 @@ public class LoginActivity extends AppCompatActivity implements LoginOrRegistVie
     public Button mBtnLogin;
     @BindView(R.id.login_checkbox)
     CheckBox mLoginCheckbox;
-    private LoginOrRegistPresenter loginPresenter;
+    private PresenterImp loginPresenter;
     private HashMap<String, String> mMap;
     private String login_pwd;
     private String login_phone;
@@ -57,7 +56,7 @@ public class LoginActivity extends AppCompatActivity implements LoginOrRegistVie
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_login);
         ButterKnife.bind(this);
-        loginPresenter = new LoginOrRegistPresenter(this);
+        loginPresenter = new PresenterImp(this);
         Intent intent = getIntent();
         String regist_phone = intent.getStringExtra("regist_phone");
         String regist_pwd = intent.getStringExtra("regist_pwd");
@@ -133,6 +132,10 @@ public class LoginActivity extends AppCompatActivity implements LoginOrRegistVie
             bundle.putString("sessionId",sessionId);
             bundle.putInt("sex",sex);
             bundle.putInt("userId",userId);
+            bundle.putString("pwd",login_pwd);
+            editor.putInt("userId",userId);
+            editor.putString("sessionId",sessionId);
+            editor.commit();
             IntentUtils.getInstence().intent(this, MainActivity.class,bundle);
             finish();
         } else {
@@ -143,5 +146,10 @@ public class LoginActivity extends AppCompatActivity implements LoginOrRegistVie
     @Override
     public void onFailer(String msg) {
         ToastUtils.showToast(this, msg);
+    }
+
+    @Override
+    protected void onDestroy() {
+        super.onDestroy();
     }
 }

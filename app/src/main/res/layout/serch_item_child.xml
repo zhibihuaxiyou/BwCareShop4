@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="151dp"
+    android:layout_height="174dp"
+    android:layout_marginLeft="10dp"
+    android:layout_marginTop="10dp"
+    android:layout_marginRight="10dp"
+    android:background="@drawable/shap_recy_radius">
+
+    <ImageView
+        android:id="@+id/serch_image"
+        android:layout_width="131dp"
+        android:layout_height="102dp"
+        android:layout_gravity="center"
+        android:layout_marginTop="10dp"
+        android:layout_margin="10dp"
+        android:scaleType="fitXY"
+        android:src="@mipmap/ic_launcher_round" />
+
+    <TextView
+        android:id="@+id/serch_name"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:layout_below="@+id/serch_image"
+        android:layout_marginTop="2dp"
+        android:layout_marginLeft="10dp"
+        android:layout_marginRight="10dp"
+        android:lines="1"
+        android:ellipsize="end"
+        android:text="jzdfv"
+        android:textColor="#666666"
+        android:textSize="12sp"/>
+
+    <TextView
+        android:id="@+id/serch_price"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="10dp"
+        android:layout_marginBottom="10dp"
+        android:layout_marginLeft="10dp"
+        android:text="jzdfhbv"
+        android:layout_below="@+id/serch_name"
+        android:textColor="#ff0000"
+        android:textSize="14sp"/>
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="10dp"
+        android:layout_marginBottom="10dp"
+        android:layout_below="@+id/serch_name"
+        android:layout_alignParentRight="true"
+        android:layout_marginRight="10dp"
+        android:text="已售48件"
+        android:textColor="#666666"
+        android:textSize="12sp"/>
+
+</RelativeLayout>

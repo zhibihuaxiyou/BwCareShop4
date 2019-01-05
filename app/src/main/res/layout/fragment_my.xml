@@ -1,201 +1,206 @@
 <?xml version="1.0" encoding="utf-8"?>
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    android:background="@mipmap/my_bitmap_bag">
-
+    android:layout_height="match_parent">
 
     <RelativeLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:layout_alignParentBottom="true"
-        android:layout_alignParentStart="true"
-        android:layout_marginTop="@dimen/dp_142"
-        android:background="@drawable/my_layout">
+        android:layout_marginBottom="30dp"
+        android:background="@mipmap/my_bitmap_bag">
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_alignParentBottom="true"
+            android:layout_alignParentStart="true"
+            android:layout_marginTop="@dimen/dp_142"
+            android:background="@drawable/my_layout">
 
-        <TextView
-            android:id="@+id/text1"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
+            <TextView
+                android:id="@+id/text1"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerHorizontal="true"
+                android:layout_marginTop="@dimen/dp_60"
+                android:text="我是吃不胖的小姐姐"
+                android:textColor="#666666"
+                android:textSize="@dimen/sp_14" />
+
+            <ImageView
+                android:id="@+id/icon_information"
+                android:layout_width="@dimen/dp_24"
+                android:layout_height="@dimen/dp_24"
+                android:layout_below="@+id/text1"
+                android:layout_marginLeft="@dimen/dp_24"
+                android:layout_marginTop="@dimen/dp_70"
+                android:src="@mipmap/my_icon_information_n" />
+
+            <TextView
+                android:id="@+id/edit_information"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_alignParentRight="true"
+                android:layout_below="@+id/text1"
+                android:layout_marginLeft="@dimen/dp_20"
+                android:layout_marginRight="@dimen/dp_24"
+                android:layout_marginTop="@dimen/dp_75"
+                android:layout_toRightOf="@+id/icon_information"
+                android:hint="个人资料"/>
+
+            <View
+                android:id="@+id/view_information"
+                android:layout_width="@dimen/dp_267"
+                android:layout_height="@dimen/dp_1"
+                android:layout_alignParentRight="true"
+                android:layout_below="@+id/edit_information"
+                android:layout_marginLeft="@dimen/dp_20"
+                android:layout_marginRight="@dimen/dp_24"
+                android:layout_marginTop="@dimen/dp_3"
+                android:layout_toRightOf="@+id/icon_information"
+                android:background="#ededed" />
+
+            <ImageView
+                android:id="@+id/icon_circle"
+                android:layout_width="@dimen/dp_24"
+                android:layout_height="@dimen/dp_24"
+                android:layout_below="@+id/view_information"
+                android:layout_marginLeft="@dimen/dp_24"
+                android:layout_marginTop="@dimen/dp_20"
+                android:src="@mipmap/my_icon_circle_n" />
+
+            <TextView
+                android:id="@+id/edit_circle"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_alignParentRight="true"
+                android:layout_below="@+id/view_information"
+                android:layout_marginLeft="@dimen/dp_20"
+                android:layout_marginRight="@dimen/dp_24"
+                android:layout_marginTop="@dimen/dp_25"
+                android:layout_toRightOf="@+id/icon_circle"
+                android:hint="我的圈子"/>
+
+            <View
+                android:id="@+id/view_circle"
+                android:layout_width="@dimen/dp_267"
+                android:layout_height="@dimen/dp_1"
+                android:layout_alignParentRight="true"
+                android:layout_below="@+id/edit_circle"
+                android:layout_marginLeft="@dimen/dp_20"
+                android:layout_marginRight="@dimen/dp_24"
+                android:layout_marginTop="@dimen/dp_3"
+                android:layout_toRightOf="@+id/icon_circle"
+                android:background="#ededed" />
+
+            <ImageView
+                android:id="@+id/icon_foot"
+                android:layout_width="@dimen/dp_24"
+                android:layout_height="@dimen/dp_24"
+                android:layout_below="@+id/view_circle"
+                android:layout_marginLeft="@dimen/dp_24"
+                android:layout_marginTop="@dimen/dp_20"
+                android:src="@mipmap/my_icon_foot_n" />
+
+            <TextView
+                android:id="@+id/edit_foot"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_alignParentRight="true"
+                android:layout_below="@+id/view_circle"
+                android:layout_marginLeft="@dimen/dp_20"
+                android:layout_marginRight="@dimen/dp_24"
+                android:layout_marginTop="@dimen/dp_25"
+                android:layout_toRightOf="@+id/icon_foot"
+                android:hint="我的足迹" />
+
+            <View
+                android:id="@+id/view_foot"
+                android:layout_width="@dimen/dp_267"
+                android:layout_height="@dimen/dp_1"
+                android:layout_alignParentRight="true"
+                android:layout_below="@+id/edit_foot"
+                android:layout_marginLeft="@dimen/dp_20"
+                android:layout_marginRight="@dimen/dp_24"
+                android:layout_marginTop="@dimen/dp_3"
+                android:layout_toRightOf="@+id/icon_foot"
+                android:background="#ededed" />
+
+            <ImageView
+                android:id="@+id/icon_wallet"
+                android:layout_width="@dimen/dp_24"
+                android:layout_height="@dimen/dp_24"
+                android:layout_below="@+id/view_foot"
+                android:layout_marginLeft="@dimen/dp_24"
+                android:layout_marginTop="@dimen/dp_20"
+                android:src="@mipmap/my_icon_wallet_n" />
+
+            <TextView
+                android:id="@+id/edit_wallet"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_alignParentRight="true"
+                android:layout_below="@+id/view_foot"
+                android:layout_marginLeft="@dimen/dp_20"
+                android:layout_marginRight="@dimen/dp_24"
+                android:layout_marginTop="@dimen/dp_25"
+                android:layout_toRightOf="@+id/icon_wallet"
+                android:hint="我的钱包"/>
+
+            <View
+                android:id="@+id/view_wallet"
+                android:layout_width="@dimen/dp_267"
+                android:layout_height="@dimen/dp_1"
+                android:layout_alignParentRight="true"
+                android:layout_below="@+id/edit_wallet"
+                android:layout_marginLeft="@dimen/dp_20"
+                android:layout_marginRight="@dimen/dp_24"
+                android:layout_marginTop="@dimen/dp_3"
+                android:layout_toRightOf="@+id/icon_wallet"
+                android:background="#ededed" />
+
+            <ImageView
+                android:id="@+id/icon_address"
+                android:layout_width="@dimen/dp_24"
+                android:layout_height="@dimen/dp_24"
+                android:layout_below="@+id/view_wallet"
+                android:layout_marginLeft="@dimen/dp_24"
+                android:layout_marginTop="@dimen/dp_20"
+                android:src="@mipmap/my_icon_address_n" />
+
+            <TextView
+                android:id="@+id/edit_address"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_alignParentRight="true"
+                android:layout_below="@+id/view_wallet"
+                android:layout_marginLeft="@dimen/dp_20"
+                android:layout_marginRight="@dimen/dp_24"
+                android:layout_marginTop="@dimen/dp_25"
+                android:layout_toRightOf="@+id/icon_address"
+                android:hint="我的收货地址" />
+
+            <View
+                android:id="@+id/view_address"
+                android:layout_width="@dimen/dp_267"
+                android:layout_height="@dimen/dp_1"
+                android:layout_alignParentRight="true"
+                android:layout_below="@+id/edit_address"
+                android:layout_marginLeft="@dimen/dp_20"
+                android:layout_marginRight="@dimen/dp_24"
+                android:layout_marginTop="@dimen/dp_3"
+                android:layout_toRightOf="@+id/icon_address"
+                android:background="#ededed" />
+
+        </RelativeLayout>
+
+        <ImageView
+            android:id="@+id/icon_bitmap_my_copy"
+            android:layout_width="@dimen/dp_80"
+            android:layout_height="@dimen/dp_80"
             android:layout_centerHorizontal="true"
-            android:layout_marginTop="@dimen/dp_60"
-            android:text="我是吃不胖的小姐姐"
-            android:textColor="#666666"
-            android:textSize="@dimen/sp_14" />
-
-        <ImageView
-            android:id="@+id/icon_information"
-            android:layout_width="@dimen/dp_24"
-            android:layout_height="@dimen/dp_24"
-            android:layout_below="@+id/text1"
-            android:layout_marginLeft="@dimen/dp_24"
-            android:layout_marginTop="@dimen/dp_70"
-            android:src="@mipmap/my_icon_information_n" />
-
-        <TextView
-            android:id="@+id/edit_information"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_alignParentRight="true"
-            android:layout_below="@+id/text1"
-            android:layout_marginLeft="@dimen/dp_20"
-            android:layout_marginRight="@dimen/dp_24"
-            android:layout_marginTop="@dimen/dp_75"
-            android:layout_toRightOf="@+id/icon_information"
-            android:hint="个人资料"/>
-
-        <View
-            android:id="@+id/view_information"
-            android:layout_width="@dimen/dp_267"
-            android:layout_height="@dimen/dp_1"
-            android:layout_alignParentRight="true"
-            android:layout_below="@+id/edit_information"
-            android:layout_marginLeft="@dimen/dp_20"
-            android:layout_marginRight="@dimen/dp_24"
-            android:layout_marginTop="@dimen/dp_3"
-            android:layout_toRightOf="@+id/icon_information"
-            android:background="#ededed" />
-
-        <ImageView
-            android:id="@+id/icon_circle"
-            android:layout_width="@dimen/dp_24"
-            android:layout_height="@dimen/dp_24"
-            android:layout_below="@+id/view_information"
-            android:layout_marginLeft="@dimen/dp_24"
-            android:layout_marginTop="@dimen/dp_20"
-            android:src="@mipmap/my_icon_circle_n" />
-
-        <TextView
-            android:id="@+id/edit_circle"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_alignParentRight="true"
-            android:layout_below="@+id/view_information"
-            android:layout_marginLeft="@dimen/dp_20"
-            android:layout_marginRight="@dimen/dp_24"
-            android:layout_marginTop="@dimen/dp_25"
-            android:layout_toRightOf="@+id/icon_circle"
-            android:hint="我的圈子"/>
-
-        <View
-            android:id="@+id/view_circle"
-            android:layout_width="@dimen/dp_267"
-            android:layout_height="@dimen/dp_1"
-            android:layout_alignParentRight="true"
-            android:layout_below="@+id/edit_circle"
-            android:layout_marginLeft="@dimen/dp_20"
-            android:layout_marginRight="@dimen/dp_24"
-            android:layout_marginTop="@dimen/dp_3"
-            android:layout_toRightOf="@+id/icon_circle"
-            android:background="#ededed" />
-
-        <ImageView
-            android:id="@+id/icon_foot"
-            android:layout_width="@dimen/dp_24"
-            android:layout_height="@dimen/dp_24"
-            android:layout_below="@+id/view_circle"
-            android:layout_marginLeft="@dimen/dp_24"
-            android:layout_marginTop="@dimen/dp_20"
-            android:src="@mipmap/my_icon_foot_n" />
-
-        <TextView
-            android:id="@+id/edit_foot"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_alignParentRight="true"
-            android:layout_below="@+id/view_circle"
-            android:layout_marginLeft="@dimen/dp_20"
-            android:layout_marginRight="@dimen/dp_24"
-            android:layout_marginTop="@dimen/dp_25"
-            android:layout_toRightOf="@+id/icon_foot"
-            android:hint="我的足迹" />
-
-        <View
-            android:id="@+id/view_foot"
-            android:layout_width="@dimen/dp_267"
-            android:layout_height="@dimen/dp_1"
-            android:layout_alignParentRight="true"
-            android:layout_below="@+id/edit_foot"
-            android:layout_marginLeft="@dimen/dp_20"
-            android:layout_marginRight="@dimen/dp_24"
-            android:layout_marginTop="@dimen/dp_3"
-            android:layout_toRightOf="@+id/icon_foot"
-            android:background="#ededed" />
-
-        <ImageView
-            android:id="@+id/icon_wallet"
-            android:layout_width="@dimen/dp_24"
-            android:layout_height="@dimen/dp_24"
-            android:layout_below="@+id/view_foot"
-            android:layout_marginLeft="@dimen/dp_24"
-            android:layout_marginTop="@dimen/dp_20"
-            android:src="@mipmap/my_icon_wallet_n" />
-
-        <TextView
-            android:id="@+id/edit_wallet"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_alignParentRight="true"
-            android:layout_below="@+id/view_foot"
-            android:layout_marginLeft="@dimen/dp_20"
-            android:layout_marginRight="@dimen/dp_24"
-            android:layout_marginTop="@dimen/dp_25"
-            android:layout_toRightOf="@+id/icon_wallet"
-            android:hint="我的钱包"/>
-
-        <View
-            android:id="@+id/view_wallet"
-            android:layout_width="@dimen/dp_267"
-            android:layout_height="@dimen/dp_1"
-            android:layout_alignParentRight="true"
-            android:layout_below="@+id/edit_wallet"
-            android:layout_marginLeft="@dimen/dp_20"
-            android:layout_marginRight="@dimen/dp_24"
-            android:layout_marginTop="@dimen/dp_3"
-            android:layout_toRightOf="@+id/icon_wallet"
-            android:background="#ededed" />
-
-        <ImageView
-            android:id="@+id/icon_address"
-            android:layout_width="@dimen/dp_24"
-            android:layout_height="@dimen/dp_24"
-            android:layout_below="@+id/view_wallet"
-            android:layout_marginLeft="@dimen/dp_24"
-            android:layout_marginTop="@dimen/dp_20"
-            android:src="@mipmap/my_icon_address_n" />
-
-        <TextView
-            android:id="@+id/edit_address"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_alignParentRight="true"
-            android:layout_below="@+id/view_wallet"
-            android:layout_marginLeft="@dimen/dp_20"
-            android:layout_marginRight="@dimen/dp_24"
-            android:layout_marginTop="@dimen/dp_25"
-            android:layout_toRightOf="@+id/icon_address"
-            android:hint="我的收货地址" />
-
-        <View
-            android:id="@+id/view_address"
-            android:layout_width="@dimen/dp_267"
-            android:layout_height="@dimen/dp_1"
-            android:layout_alignParentRight="true"
-            android:layout_below="@+id/edit_address"
-            android:layout_marginLeft="@dimen/dp_20"
-            android:layout_marginRight="@dimen/dp_24"
-            android:layout_marginTop="@dimen/dp_3"
-            android:layout_toRightOf="@+id/icon_address"
-            android:background="#ededed" />
-
+            android:layout_marginTop="102dp"
+            android:src="@mipmap/bitmap_my_copy" />
     </RelativeLayout>
-
-    <ImageView
-        android:id="@+id/icon_bitmap_my_copy"
-        android:layout_width="@dimen/dp_80"
-        android:layout_height="@dimen/dp_80"
-        android:layout_centerHorizontal="true"
-        android:layout_marginTop="102dp"
-        android:src="@mipmap/bitmap_my_copy" />
 
 </RelativeLayout>

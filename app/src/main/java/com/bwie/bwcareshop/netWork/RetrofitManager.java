@@ -23,7 +23,7 @@ import rx.schedulers.Schedulers;
  */
 public class RetrofitManager<T> {
 
-    private final String BASE_URL = "http://172.17.8.100/small/";
+    private final String BASE_URL = "http://mobile.bwstudent.com/small/";
 
     private static RetrofitManager manager;
 
@@ -71,6 +71,7 @@ public class RetrofitManager<T> {
         }
         return requestBody;
     }
+
 
     /**
      * get请求

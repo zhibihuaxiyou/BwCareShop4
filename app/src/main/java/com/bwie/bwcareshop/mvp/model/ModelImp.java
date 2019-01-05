@@ -1,6 +1,6 @@
 package com.bwie.bwcareshop.mvp.model;
 
-import com.bwie.bwcareshop.mvp.callback.LoginOrRegistCallBack;
+import com.bwie.bwcareshop.mvp.callback.MyCallBack;
 import com.bwie.bwcareshop.netWork.RetrofitManager;
 import com.google.gson.Gson;
 
@@ -12,8 +12,8 @@ import okhttp3.RequestBody;
  * author：张腾
  * date：2018/12/28
  */
-public class LoginOrRegistModel {
-    public void loginOrRegist(String url, Map<String, String> map, final Class clazz, final LoginOrRegistCallBack loginOrRegistCallBack){
+public class ModelImp {
+    public void loginOrRegist(String url, Map<String, String> map, final Class clazz, final MyCallBack loginOrRegistCallBack){
         Map<String, RequestBody> mMap = RetrofitManager.getManager().getRequestBody(map);
         RetrofitManager.getManager().postFormBody(url,mMap).setHttpListener(new RetrofitManager.HttpListener() {
             @Override
