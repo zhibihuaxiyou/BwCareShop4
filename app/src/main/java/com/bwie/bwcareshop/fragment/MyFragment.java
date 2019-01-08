@@ -56,13 +56,7 @@ public class MyFragment extends Fragment {
     public void onActivityCreated(@Nullable Bundle savedInstanceState) {
         super.onActivityCreated(savedInstanceState);
         Intent intent = getActivity().getIntent();
-        bundle = new Bundle();
         String headPic = intent.getStringExtra("headPic");
-        String nickName = intent.getStringExtra("nickName");
-        String pwd = intent.getStringExtra("pwd");
-        bundle.putString("headPic",headPic);
-        bundle.putString("nickName",nickName);
-        bundle.putString("pwd",pwd);
         Glide.with(getActivity()).load(headPic).into(mIconBitmapMyCopy);
     }
 
@@ -72,19 +66,19 @@ public class MyFragment extends Fragment {
             default:
                 break;
             case R.id.edit_information:
-                IntentUtils.getInstence().intent(getActivity(), InformationActivity.class,bundle);
+                IntentUtils.getInstence().intent(getActivity(), InformationActivity.class);
                 break;
             case R.id.edit_circle:
-                IntentUtils.getInstence().intent(getActivity(), CircleActivity.class,bundle);
+                IntentUtils.getInstence().intent(getActivity(), CircleActivity.class);
                 break;
             case R.id.edit_foot:
-                IntentUtils.getInstence().intent(getActivity(), FootActivity.class,bundle);
+                IntentUtils.getInstence().intent(getActivity(), FootActivity.class);
                 break;
             case R.id.edit_wallet:
-                IntentUtils.getInstence().intent(getActivity(), WalletActivity.class,bundle);
+                IntentUtils.getInstence().intent(getActivity(), WalletActivity.class);
                 break;
             case R.id.edit_address:
-                IntentUtils.getInstence().intent(getActivity(), AddressActivity.class,bundle);
+                IntentUtils.getInstence().intent(getActivity(), AddressActivity.class);
                 break;
         }
     }

@@ -18,5 +18,10 @@ public class Apis {
     public static final String GOODS_WALLET_URL = "user/verify/v1/findUserWallet";
     //根据用户ID查询用户信息
     public static final String GOODS_USER_URL = "user/verify/v1/getUserById";
-
+    //商品详情
+    public static final String DETAILS_URL = "commodity/v1/findCommodityDetailsById";
+    //加入购物车
+    public static final String ADDSHOP_URL = "order/verify/v1/syncShoppingCart";
+    //查询购物车
+    public static final String SELECT_SHOP_URL = "order/verify/v1/findShoppingCart";
 }

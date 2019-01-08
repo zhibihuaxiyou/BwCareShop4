@@ -36,7 +36,7 @@ public class InformationBean {
     }
 
     public class Result{
-        private int createTime;
+        private String createTime;
 
         private String headPic;
 
@@ -48,13 +48,13 @@ public class InformationBean {
 
         private int sex;
 
-        private int userId;
+        private String userId;
 
-        public int getCreateTime() {
+        public String getCreateTime() {
             return createTime;
         }
 
-        public void setCreateTime(int createTime) {
+        public void setCreateTime(String createTime) {
             this.createTime = createTime;
         }
 
@@ -98,11 +98,11 @@ public class InformationBean {
             this.sex = sex;
         }
 
-        public int getUserId() {
+        public String getUserId() {
             return userId;
         }
 
-        public void setUserId(int userId) {
+        public void setUserId(String userId) {
             this.userId = userId;
         }
     }

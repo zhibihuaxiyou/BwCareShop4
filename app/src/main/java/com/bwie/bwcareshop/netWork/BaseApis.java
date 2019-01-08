@@ -13,6 +13,7 @@ import retrofit2.http.GET;
 import retrofit2.http.Header;
 import retrofit2.http.Multipart;
 import retrofit2.http.POST;
+import retrofit2.http.PUT;
 import retrofit2.http.PartMap;
 import retrofit2.http.Query;
 import retrofit2.http.QueryMap;
@@ -38,4 +39,8 @@ public interface BaseApis<T> {
     //我的钱包
     @GET(Apis.GOODS_WALLET_URL)
     Call<WalletBean> showWallet(@Query("page") int page, @Query("count") int count);
+
+    //购物车
+    @PUT
+    Observable<ResponseBody> put(@Url String url, @QueryMap Map<String, String> map);
 }

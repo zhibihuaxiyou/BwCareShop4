@@ -1,5 +1,7 @@
 package com.bwie.bwcareshop.mvp.model;
 
+import android.util.Log;
+
 import com.bwie.bwcareshop.mvp.callback.MyCallBack;
 import com.bwie.bwcareshop.netWork.RetrofitManagerUtil;
 import com.google.gson.Gson;
@@ -13,22 +15,22 @@ public class InformationModel {
         RetrofitManagerUtil.getInstance().get(url,new RetrofitManagerUtil.HttpListener() {
             @Override
             public void onSuccess(String data) {
-                try {
-                    Object o = new Gson().fromJson(data, clazz);
-                    if (myCallBack != null) {
-                        myCallBack.onSuccess(o);
-                    }
-                } catch (Exception e) {
-                    e.printStackTrace();
-                    if (myCallBack != null) {
-                        myCallBack.onFailer(e.getMessage());
+                    try {
+                        Object o = new Gson().fromJson(data, clazz);
+                        if (myCallBack != null) {
+                            myCallBack.onSuccess(o);
+                        }
+                    }catch (Exception  e){
+                        Log.d("sssssssssssss", "onFailed: "+e);
                     }
                 }
-            }
 
             @Override
             public void onFailed(String error) {
-
+                Log.d("sssssssssssss", "onFailed: "+error);
+                if (myCallBack != null) {
+                    myCallBack.onSuccess(error);
+                }
             }
         });
     }

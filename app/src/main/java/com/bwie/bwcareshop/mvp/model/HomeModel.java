@@ -1,10 +1,8 @@
 package com.bwie.bwcareshop.mvp.model;
 
 import com.bwie.bwcareshop.api.Apis;
-import com.bwie.bwcareshop.bean.HomeBannerBean;
 import com.bwie.bwcareshop.bean.HomeListBean;
 import com.bwie.bwcareshop.mvp.callback.HomeCallBack;
-import com.bwie.bwcareshop.netWork.RetrofitManager;
 import com.bwie.bwcareshop.utils.OkHttpUtil;
 import com.google.gson.Gson;
 

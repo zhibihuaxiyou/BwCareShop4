@@ -31,6 +31,9 @@ import butterknife.BindViews;
 import butterknife.ButterKnife;
 import butterknife.OnClick;
 
+/**
+ * 登录
+ */
 public class LoginActivity extends AppCompatActivity implements MyView {
 
     @BindViews({R.id.edit_login_mobile, R.id.edit_login_password})
@@ -118,25 +121,12 @@ public class LoginActivity extends AppCompatActivity implements MyView {
             }else {
                 editor.putBoolean("isChecked", false);
             }
-            editor.apply();
-            Bundle bundle = new Bundle();
-            String headPic = loginBean.getResult().getHeadPic();
-            String nickName = loginBean.getResult().getNickName();
-            String phone = loginBean.getResult().getPhone();
             String sessionId = loginBean.getResult().getSessionId();
-            int sex = loginBean.getResult().getSex();
-            int userId = loginBean.getResult().getUserId();
-            bundle.putString("headPic",headPic);
-            bundle.putString("nickName",nickName);
-            bundle.putString("phone",phone);
-            bundle.putString("sessionId",sessionId);
-            bundle.putInt("sex",sex);
-            bundle.putInt("userId",userId);
-            bundle.putString("pwd",login_pwd);
-            editor.putInt("userId",userId);
+            String userId = loginBean.getResult().getUserId();
+            editor.putString("userId",userId);
             editor.putString("sessionId",sessionId);
-            editor.commit();
-            IntentUtils.getInstence().intent(this, MainActivity.class,bundle);
+            editor.apply();
+            IntentUtils.getInstence().intent(this, MainActivity.class);
             finish();
         } else {
             ToastUtils.showToast(this, loginBean.getMessage());

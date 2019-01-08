@@ -12,29 +12,29 @@ import okhttp3.RequestBody;
  * author：张腾
  * date：2018/12/28
  */
-public class ModelImp {
-    public void loginOrRegist(String url, Map<String, String> map, final Class clazz, final MyCallBack loginOrRegistCallBack){
+public class AddShopModelImp {
+    public void addShop(String url, Map<String, String> map, final Class clazz, final MyCallBack myCallBack){
         Map<String, RequestBody> mMap = RetrofitManagerUtil.getInstance().generateRequestBody(map);
-        RetrofitManagerUtil.getInstance().postFormBody(url,mMap,new RetrofitManagerUtil.HttpListener() {
+        RetrofitManagerUtil.getInstance().put(url,mMap,new RetrofitManagerUtil.HttpListener() {
             @Override
             public void onSuccess(String data) {
                 try {
                     Object o = new Gson().fromJson(data, clazz);
-                    if (loginOrRegistCallBack != null) {
-                        loginOrRegistCallBack.onSuccess(o);
+                    if (myCallBack != null) {
+                        myCallBack.onSuccess(o);
                     }
                 } catch (Exception e) {
                     e.printStackTrace();
-                    if (loginOrRegistCallBack != null) {
-                        loginOrRegistCallBack.onFailer(e.getMessage());
+                    if (myCallBack != null) {
+                        myCallBack.onFailer(e.getMessage());
                     }
                 }
             }
 
             @Override
             public void onFailed(String error) {
-                if (loginOrRegistCallBack != null) {
-                    loginOrRegistCallBack.onFailer(error);
+                if (myCallBack != null) {
+                    myCallBack.onFailer(error);
                 }
             }
         });

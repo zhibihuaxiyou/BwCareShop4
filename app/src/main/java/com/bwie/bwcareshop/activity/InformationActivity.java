@@ -35,9 +35,9 @@ public class InformationActivity extends AppCompatActivity implements MyView {
         informationPresenter.showInformation(Apis.GOODS_USER_URL, InformationBean.class);
     }
 
-    @Override
     public void onSuccess(Object data) {
-        InformationBean.Result result = (InformationBean.Result) data;
+        InformationBean informationBean = (InformationBean) data;
+        InformationBean.Result result = informationBean.getResult();
         Glide.with(this).load(result.getHeadPic()).into(mIconInfo);
         mTextName.setText(result.getNickName());
         mTextPwd.setText(result.getPassword());

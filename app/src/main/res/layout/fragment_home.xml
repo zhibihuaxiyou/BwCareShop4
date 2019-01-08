@@ -185,4 +185,31 @@
             </RelativeLayout>
         </RelativeLayout>
     </ScrollView>
+    <RelativeLayout
+        android:id="@+id/relative_more"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+        <ImageView
+            android:id="@+id/icon_more"
+            android:layout_width="match_parent"
+            android:layout_height="30dp"
+            android:layout_marginTop="10dp"
+            android:src="@mipmap/bitmap"/>
+        <TextView
+            android:id="@+id/text_more"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerHorizontal="true"
+            android:layout_marginTop="4dp"
+            android:text="热销商品"
+            android:textColor="#ff7f57"
+            android:textSize="16sp"/>
+        <android.support.v7.widget.RecyclerView
+            android:id="@+id/recy_more"
+            android:layout_below="@+id/icon_more"
+            android:layout_marginTop="10dp"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:visibility="gone"/>
+    </RelativeLayout>
 </LinearLayout>

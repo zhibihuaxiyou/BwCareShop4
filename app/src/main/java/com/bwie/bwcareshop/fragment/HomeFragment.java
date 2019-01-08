@@ -23,17 +23,22 @@ import android.widget.TextView;
 
 import com.bumptech.glide.Glide;
 import com.bwie.bwcareshop.R;
+import com.bwie.bwcareshop.activity.DetailsActivity;
 import com.bwie.bwcareshop.adapter.HomeMoliAdapter;
 import com.bwie.bwcareshop.adapter.HomePinzhiAdapter;
 import com.bwie.bwcareshop.adapter.HomeRexiaoAdapter;
+import com.bwie.bwcareshop.adapter.MoreAdapter;
 import com.bwie.bwcareshop.adapter.SerchAdapter;
 import com.bwie.bwcareshop.api.Apis;
 import com.bwie.bwcareshop.bean.HomeBannerBean;
 import com.bwie.bwcareshop.bean.HomeListBean;
+import com.bwie.bwcareshop.bean.MoreBean;
 import com.bwie.bwcareshop.bean.SearchBean;
 import com.bwie.bwcareshop.mvp.presenter.HomePresenterImp;
+import com.bwie.bwcareshop.mvp.presenter.MorePresenter;
 import com.bwie.bwcareshop.mvp.presenter.SerchPresenter;
 import com.bwie.bwcareshop.mvp.view.HomeView;
+import com.bwie.bwcareshop.mvp.view.MoreView;
 import com.bwie.bwcareshop.mvp.view.SerchView;
 import com.bwie.bwcareshop.utils.IntentUtils;
 import com.bwie.bwcareshop.utils.OkHttpUtil;
@@ -52,7 +57,7 @@ import butterknife.OnClick;
 import butterknife.Unbinder;
 
 
-public class HomeFragment extends Fragment implements HomeView, SerchView {
+public class HomeFragment extends Fragment implements HomeView, SerchView, MoreView {
 
     @BindView(R.id.Im_menu)
     ImageView mImMenu;
@@ -86,10 +91,18 @@ public class HomeFragment extends Fragment implements HomeView, SerchView {
     ImageView mIconPinzhi;
     @BindView(R.id.recy_pinzhi)
     RecyclerView mRecyPinzhi;
+    @BindView(R.id.recy_more)
+    RecyclerView mRecyMore;
     @BindView(R.id.recy_serch)
     XRecyclerView mRecySerch;
     @BindView(R.id.serch_layout)
     RelativeLayout mSerchLayout;
+    @BindView(R.id.relative_more)
+    RelativeLayout mRelativeMore;
+    @BindView(R.id.icon_more)
+    ImageView mIconMore;
+    @BindView(R.id.text_more)
+    TextView mTextMore;
     private Unbinder unbinder;
     private List<HomeBannerBean.Result> list = new ArrayList<>();
     private List<HomeBannerBean.Result> bannerList = new ArrayList<>();
@@ -103,6 +116,7 @@ public class HomeFragment extends Fragment implements HomeView, SerchView {
     private SerchAdapter serchAdapter;
     int page = 1;
     private String editSerch;
+    private MorePresenter morePresenter;
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
@@ -181,11 +195,37 @@ public class HomeFragment extends Fragment implements HomeView, SerchView {
                 onSerchShow();
                 break;
             case R.id.icon_rexiao:
-
+                mScrollSerch.setVisibility(View.GONE);
+                mScrollView.setVisibility(View.GONE);
+                mRecyMore.setVisibility(View.VISIBLE);
+                String rxxpName = rxxpBean.get(0).getName();
+                int rxxpId = rxxpBean.get(0).getId();
+                mIconMore.setImageResource(R.mipmap.bitmap);
+                mTextMore.setText(rxxpName);
+                morePresenter = new MorePresenter(this);
+                morePresenter.showMore(rxxpId+"",1,10);
                 break;
             case R.id.icon_moli:
+                mScrollSerch.setVisibility(View.GONE);
+                mScrollView.setVisibility(View.GONE);
+                mRecyMore.setVisibility(View.VISIBLE);
+                String mlssName = mlssBean.get(0).getName();
+                int mlssId = mlssBean.get(0).getId();
+                mIconMore.setImageResource(R.mipmap.bitmap_3);
+                mTextMore.setText(mlssName);
+                morePresenter = new MorePresenter(this);
+                morePresenter.showMore(mlssId+"",1,10);
                 break;
             case R.id.icon_pinzhi:
+                mScrollSerch.setVisibility(View.GONE);
+                mScrollView.setVisibility(View.GONE);
+                mRecyMore.setVisibility(View.VISIBLE);
+                String pzshName = pzshBean.get(0).getName();
+                int pzshId = rxxpBean.get(0).getId();
+                mIconMore.setImageResource(R.mipmap.bitmap_2);
+                mTextMore.setText(pzshName);
+                morePresenter = new MorePresenter(this);
+                morePresenter.showMore(pzshId+"",1,10);
                 break;
         }
     }
@@ -207,9 +247,9 @@ public class HomeFragment extends Fragment implements HomeView, SerchView {
             mImSerch.setVisibility(View.VISIBLE);
         }else {
             mScrollView.setVisibility(View.GONE);
+            mRecyMore.setVisibility(View.GONE);
             mScrollSerch.setVisibility(View.VISIBLE);
             serchPresenter = new SerchPresenter(this);
-            mRecySerch.setVisibility(View.VISIBLE);
             mSerchLayout.setVisibility(View.GONE);
             serchPresenter.serch(editSerch,page,10);
             mRecySerch.setLoadingMoreEnabled(true);
@@ -220,7 +260,6 @@ public class HomeFragment extends Fragment implements HomeView, SerchView {
                     page = 1;
                     arrayList.clear();
                     serchPresenter.serch(editSerch,page,10);
-                    mRecySerch.refreshComplete();
                 }
 
                 @Override
@@ -228,15 +267,13 @@ public class HomeFragment extends Fragment implements HomeView, SerchView {
                     page++;
                     serchPresenter.serch(editSerch,page,10);
                     serchAdapter.notifyDataSetChanged();
-                    mRecySerch.loadMoreComplete();
                     if (page>2) {
+                        mRecySerch.loadMoreComplete();
                         ToastUtils.showToast(getActivity(),"没有更多数据了");
                     }
                 }
-
             });
         }
-
     }
 
     private void onSerchShow() {
@@ -267,7 +304,7 @@ public class HomeFragment extends Fragment implements HomeView, SerchView {
         homeMoliAdapter.setOnClick(new HomeMoliAdapter.OnClick() {
             @Override
             public void onClickListener(int position) {
-                ToastUtils.showToast(getActivity(),position+"");
+                onIntent(position);
             }
         });
 
@@ -279,7 +316,7 @@ public class HomeFragment extends Fragment implements HomeView, SerchView {
         homeRexiaoAdapter.setOnClick(new HomeRexiaoAdapter.OnClick() {
             @Override
             public void onClickListener(int position) {
-                ToastUtils.showToast(getActivity(),position+"");
+                onIntent(position);
             }
         });
 
@@ -290,9 +327,15 @@ public class HomeFragment extends Fragment implements HomeView, SerchView {
         homePinzhiAdapter.setOnClick(new HomePinzhiAdapter.OnClick() {
             @Override
             public void onClickListener(int position) {
-                ToastUtils.showToast(getActivity(),position+"");
+                onIntent(position);
             }
         });
+    }
+
+    private void onIntent(int position) {
+        Bundle bundle = new Bundle();
+        bundle.putString("commodityId",position+"");
+        IntentUtils.getInstence().intent(getActivity(), DetailsActivity.class,bundle);
     }
 
     @Override
@@ -301,6 +344,7 @@ public class HomeFragment extends Fragment implements HomeView, SerchView {
         if (arrayList.size()>0) {
             mRecySerch.setVisibility(View.VISIBLE);
             mSerchLayout.setVisibility(View.GONE);
+            mRecyMore.setVisibility(View.GONE);
             serchAdapter = new SerchAdapter(getContext(), arrayList);
             GridLayoutManager gridLayoutManager = new GridLayoutManager(getActivity(), 2);
             mRecySerch.setLayoutManager(gridLayoutManager);
@@ -309,7 +353,7 @@ public class HomeFragment extends Fragment implements HomeView, SerchView {
             serchAdapter.setOnClick(new SerchAdapter.OnClick() {
                 @Override
                 public void onClickListener(int position) {
-                    ToastUtils.showToast(getActivity(),position+"");
+                    onIntent(position);
 
                 }
             });
@@ -317,6 +361,22 @@ public class HomeFragment extends Fragment implements HomeView, SerchView {
             mRecySerch.setVisibility(View.GONE);
             mSerchLayout.setVisibility(View.VISIBLE);
         }
+    }
+
+    @Override
+    public void onSuccessMore(Object mList) {
+        List<MoreBean.ResultBean> moreList = (List<MoreBean.ResultBean>) mList;
+        MoreAdapter moreAdapter = new MoreAdapter(getActivity(), moreList);
+        GridLayoutManager gridLayoutManager = new GridLayoutManager(getActivity(), 2);
+        mRecyMore.setLayoutManager(gridLayoutManager);
+        mRecyMore.setAdapter( moreAdapter);
+        moreAdapter.notifyDataSetChanged();
+        moreAdapter.setOnClick(new MoreAdapter.OnClick() {
+            @Override
+            public void onClickListener(int position) {
+                onIntent(position);
+            }
+        });
     }
 
     @Override

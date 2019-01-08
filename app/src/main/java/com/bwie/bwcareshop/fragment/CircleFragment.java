@@ -48,7 +48,7 @@ public class CircleFragment extends Fragment implements CircleView {
     public void onActivityCreated(@Nullable Bundle savedInstanceState) {
         super.onActivityCreated(savedInstanceState);
         circlePresenter = new CirclePresenter(this);
-        circlePresenter.showCircle(1,5);
+        circlePresenter.showCircle(1,50);
     }
 
     @Override

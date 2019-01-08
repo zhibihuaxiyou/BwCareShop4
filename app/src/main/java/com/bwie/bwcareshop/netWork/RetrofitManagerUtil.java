@@ -107,18 +107,18 @@ public class RetrofitManagerUtil<T> {
     }
 
     /**
-     * 普通post请求
+     * 普通put请求
      *
      * @param url
      * @param map
      * @return
      */
-    public RetrofitManagerUtil post(String url, Map<String, String> map, HttpListener mHttpListener) {
+    public RetrofitManagerUtil put(String url, Map<String, String> map, HttpListener mHttpListener) {
         //判断,当map为空的时候,重新创建一个   HashMap
         if (map == null) {
             map = new HashMap<>();
         }
-        mBaseApis.post(url, map)//post请求
+        mBaseApis.put(url, map)//post请求
                 .subscribeOn(Schedulers.io())//后台执行在哪个线程
                 .observeOn(AndroidSchedulers.mainThread())//最终完成后执行在哪个线程
                 .subscribe(getObserver(mHttpListener));//设置我们的    RxJava
@@ -157,7 +157,6 @@ public class RetrofitManagerUtil<T> {
                         mHttpListener.onFailed(e.getMessage());
                     }
                 }
-
             }
 
         };
